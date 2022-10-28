@@ -11,23 +11,22 @@ public class DoubleXRGrabInteractable : XRGrabInteractable
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
     {
-        if (interactorsSelecting.Count == 1)
+        switch (interactorsSelecting.Count)
         {
-            base.ProcessInteractable(updatePhase);
-        }
-        else if (interactorsSelecting.Count == 2 && updatePhase == XRInteractionUpdateOrder.UpdatePhase.Fixed)
-        {
-            CalculateMovement();
+            case 1:
+                base.ProcessInteractable(updatePhase);
+                break;
+            case 2 when updatePhase == XRInteractionUpdateOrder.UpdatePhase.Fixed:
+                CalculateMovement();
+                break;
         }
     }
 
     private void CalculateMovement()
     {
-        Transform firstInteractorTransform = interactorsSelecting[0].transform;
-        Transform secondInteractorTransform = interactorsSelecting[1].transform;
+        // Transform firstInteractorTransform = interactorsSelecting[0].transform;
+        // Transform secondInteractorTransform = interactorsSelecting[1].transform;
 
-
-        
         //transform.SetPositionAndRotation(targetPosition, targetRotation);
     }
 
