@@ -1017,7 +1017,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",                
+                    "name": "",
                     "id": "31d838df-4d4e-4c16-a373-b9c07d9d2e2a",
                     "path": "<XRController>{RightHand}/Primary2DAxis",
                     "interactions": "Sector(directions=12,sweepBehavior=1),Sector(directions=2,sweepBehavior=2)",
@@ -1489,6 +1489,102 @@
                     "processors": "",
                     "groups": "",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Left Object Transform",
+            "id": "2b8d331f-5ff7-463a-b102-6d05a299f170",
+            "actions": [
+                {
+                    "name": "Move Back Forth",
+                    "type": "Value",
+                    "id": "8289ab6f-f973-4d33-8f17-0d0086eacc28",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotate Left Right",
+                    "type": "Value",
+                    "id": "759f7812-846d-45d6-9ea3-3b0e0f2ef8b1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "152575bc-74a2-4bcd-8f36-97c0a2237c14",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
+                    "interactions": "Sector(directions=3,sweepBehavior=1)",
+                    "processors": "StickDeadzone",
+                    "groups": "Generic XR Controller",
+                    "action": "Move Back Forth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d754c7e-62cc-436d-b81f-1a85756f6367",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
+                    "interactions": "Sector(directions=12,sweepBehavior=1)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Rotate Left Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Right Object Transform",
+            "id": "711d7b72-fabc-4d35-ba21-6a4834f91717",
+            "actions": [
+                {
+                    "name": "Move Back Forth",
+                    "type": "Value",
+                    "id": "fa0a2335-cfb1-4506-938e-e3d5745432d1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotate Left Right",
+                    "type": "Value",
+                    "id": "4b935f4a-70a6-4b7a-867b-af243986207a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "17a4cb45-3fe3-42b1-acf5-5bba37c641ca",
+                    "path": "<XRController>{RightHand}/thumbstick",
+                    "interactions": "Sector(directions=3,sweepBehavior=1)",
+                    "processors": "StickDeadzone",
+                    "groups": "Generic XR Controller",
+                    "action": "Move Back Forth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b7a0e1f-07fc-406e-8e0e-a78307c764a3",
+                    "path": "<XRController>{RightHand}/primary2DAxis",
+                    "interactions": "Sector(directions=12,sweepBehavior=1)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Rotate Left Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
