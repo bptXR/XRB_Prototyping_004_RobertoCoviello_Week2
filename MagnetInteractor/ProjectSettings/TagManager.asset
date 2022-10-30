@@ -8,6 +8,8 @@ TagManager:
   - LeftHand
   - FingerTip
   - Pointer
+  - MagneticObject
+  - TargetPoint
   layers:
   - Default
   - TransparentFX
