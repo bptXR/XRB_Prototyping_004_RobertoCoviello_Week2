@@ -9,8 +9,7 @@ namespace Target
         [SerializeField] private InputActionReference rightMove;
         [SerializeField] private InputActionReference leftMove;
         [SerializeField] private Transform targetTransform;
-        [SerializeField] private Transform magnetTransform;
-        [SerializeField] private float movementSpeed = 0.15f;
+        [SerializeField] private float movementSpeed = 0.5f;
 
         public bool isMoving;
 
@@ -21,9 +20,9 @@ namespace Target
             Vector2 valueLeft = leftMove.action.ReadValue<Vector2>();
             Vector2 moveProduct = valueLeft + valueRight;
 
-            var position = targetTransform.position;
+            var position = targetTransform.localPosition;
             position += new Vector3(0, 0, movementSpeed * moveProduct.y);
-            targetTransform.position = position;
+            targetTransform.localPosition = position;
         }
 
         private void OnEnable()
