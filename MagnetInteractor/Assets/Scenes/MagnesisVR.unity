@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 77365680}
   - component: {fileID: 77365679}
   - component: {fileID: 77365686}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MagneticObject
   m_TagString: MagneticObject
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77365677}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 637782503b1f20d44b915b980aad8197, type: 3}
   m_Name: 
@@ -1704,7 +1704,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1834609369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2befc96a8f643b74daded14d85a729f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 1918404920}
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   m_AllowHoverHapticsWhileSelecting: 1
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 50
+  m_MaxRaycastDistance: 30
   m_RayOriginTransform: {fileID: 1834609370}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 16
@@ -1802,8 +1802,8 @@ MonoBehaviour:
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
-  m_EnableUIInteraction: 0
-  m_AllowAnchorControl: 0
+  m_EnableUIInteraction: 1
+  m_AllowAnchorControl: 1
   m_UseForceGrab: 1
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
@@ -2629,6 +2629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6436569561922434531}
+  - component: {fileID: 7478876246126106488}
   - component: {fileID: 7478876246126106487}
   - component: {fileID: 226376752072502368}
   - component: {fileID: 3297833123251203913}
@@ -2664,7 +2665,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5915646639108403033}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.30842876, z: -0, w: 0.95124745}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -2676,7 +2677,7 @@ Transform:
   - {fileID: 2003397162}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -35.929, z: 0}
 --- !u!23 &7050863518291477703
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2880,6 +2881,24 @@ MonoBehaviour:
   magnetBulletPrefab: {fileID: 36304893996598150, guid: d1b44e37aca9698439aa26dc15c834ce,
     type: 3}
   bulletSpeed: 10
+  magnetRayInteractor: {fileID: 7478876246126106488}
+--- !u!114 &7478876246126106488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915646639108403033}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2befc96a8f643b74daded14d85a729f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  oldMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: 39f8b97053c4d6444a609d242cf51a80, type: 2}
 --- !u!4 &7864111198177291910
 Transform:
   m_ObjectHideFlags: 0

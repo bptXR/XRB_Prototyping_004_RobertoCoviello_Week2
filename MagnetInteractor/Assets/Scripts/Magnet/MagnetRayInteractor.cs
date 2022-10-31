@@ -1,18 +1,48 @@
-using Object;
+using System;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Magnet
 {
-    public class MagnetRayInteractor : XRRayInteractor
+    public class MagnetRayInteractor : MonoBehaviour
     {
-        protected override void OnHoverEntered(HoverEnterEventArgs args)
+        [SerializeField] private LayerMask layerMask;
+        [SerializeField] private Material oldMaterial;
+        [SerializeField] private Material highlightMaterial;
+
+        private MeshRenderer _meshRenderer;
+        private bool _highlightApplied;
+
+        private void FixedUpdate()
         {
-            base.OnHoverEntered(args);
-            if (args.interactableObject is MagneticObject magneticObject)
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.localPosition, transform.TransformDirection(Vector3.forward), out hit,
+                    100, layerMask))
             {
-                Destroy(magneticObject);
+                if (_highlightApplied) return;
+                _meshRenderer = hit.transform.gameObject.GetComponent<MeshRenderer>();
+                _meshRenderer.material = highlightMaterial;
+                _highlightApplied = true;
             }
+            else
+            {
+                if (!_highlightApplied) return;
+                DisableMeshRender();
+                _highlightApplied = false;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (_meshRenderer == null) return;
+            DisableMeshRender();
+        }
+
+        private void DisableMeshRender()
+        {
+            _meshRenderer.material = oldMaterial;
+            _meshRenderer = null;
+            _highlightApplied = false;
         }
     }
 }
