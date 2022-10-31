@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Object;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering;
@@ -16,12 +17,11 @@ namespace Magnet
         [SerializeField] private float bulletSpeed = 10;
         [SerializeField] private MagnetRayInteractor magnetRayInteractor;
         [SerializeField] private UniversalRendererData renderSettings;
+        [SerializeField] private FollowTarget followTarget;
 
         private bool _isWaiting;
         private GameObject _bullet;
         
-        public static Action<bool> onBeingGrabbed;
-
         protected override void OnActivated(ActivateEventArgs args)
         {
             base.OnActivated(args);
@@ -53,6 +53,7 @@ namespace Magnet
             base.OnDeactivated(args);
             RenderSettings(true);
             Destroy(_bullet);
+            followTarget.enabled = false;
         }
 
         private IEnumerator Shoot()
