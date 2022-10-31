@@ -6,10 +6,10 @@ namespace Magnet
     public class MagnetRayInteractor : MonoBehaviour
     {
         [SerializeField] private LayerMask layerMask;
-        [SerializeField] private Material oldMaterial;
         [SerializeField] private Material highlightMaterial;
 
         private MeshRenderer _meshRenderer;
+        private Material _oldMaterial;
         private bool _highlightApplied;
 
         private void FixedUpdate()
@@ -21,6 +21,7 @@ namespace Magnet
             {
                 if (_highlightApplied) return;
                 _meshRenderer = hit.transform.gameObject.GetComponent<MeshRenderer>();
+                _oldMaterial = _meshRenderer.material;
                 _meshRenderer.material = highlightMaterial;
                 _highlightApplied = true;
             }
@@ -40,7 +41,7 @@ namespace Magnet
 
         private void DisableMeshRender()
         {
-            _meshRenderer.material = oldMaterial;
+            _meshRenderer.material = _oldMaterial;
             _meshRenderer = null;
             _highlightApplied = false;
         }

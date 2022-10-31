@@ -2882,6 +2882,7 @@ MonoBehaviour:
     type: 3}
   bulletSpeed: 10
   magnetRayInteractor: {fileID: 7478876246126106488}
+  renderSettings: {fileID: 11400000, guid: e634585d5c4544dd297acaee93dc2beb, type: 2}
 --- !u!114 &7478876246126106488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2897,8 +2898,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  oldMaterial: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  highlightMaterial: {fileID: 2100000, guid: 39f8b97053c4d6444a609d242cf51a80, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: 9f57fabeebaa2244e87078e2d775588c, type: 2}
 --- !u!4 &7864111198177291910
 Transform:
   m_ObjectHideFlags: 0

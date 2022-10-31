@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: Environment
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     passTag: Environment
     Event: 300
@@ -26,45 +26,6 @@ MonoBehaviour:
     overrideMaterialPassIndex: 0
     overrideDepthState: 1
     depthCompareFunction: 4
-    enableWrite: 1
-    stencilSettings:
-      overrideStencilState: 0
-      stencilReference: 0
-      stencilCompareFunction: 8
-      passOperation: 0
-      failOperation: 0
-      zFailOperation: 0
-    cameraSettings:
-      overrideCamera: 0
-      restoreCamera: 1
-      offset: {x: 0, y: 0, z: 0, w: 0}
-      cameraFieldOfView: 60
---- !u!114 &-123802060063202307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Normal Opaque
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  settings:
-    passTag: Normal Opaque
-    Event: 300
-    filterSettings:
-      RenderQueueType: 0
-      LayerMask:
-        serializedVersion: 2
-        m_Bits: 128
-      PassNames: []
-    overrideMaterial: {fileID: 2100000, guid: 820e643c3ca873949837f8371bbdf434, type: 2}
-    overrideMaterialPassIndex: 0
-    overrideDepthState: 0
-    depthCompareFunction: 8
     enableWrite: 1
     stencilSettings:
       overrideStencilState: 0
@@ -95,11 +56,9 @@ MonoBehaviour:
       type: 3}
   m_RendererFeatures:
   - {fileID: 1852758322308825115}
-  - {fileID: -123802060063202307}
   - {fileID: 7092840792021572572}
-  - {fileID: 2732794274120115830}
   - {fileID: -1804538636136025140}
-  m_RendererFeatureMap: 1bc0ddb7e051b619fda378abae2a48fedc9bd8f01ed56e6276a626d1e9d5ec25ccf3a4d9abfdf4e6
+  m_RendererFeatureMap: 1bc0ddb7e051b619dc9bd8f01ed56e62ccf3a4d9abfdf4e6
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -151,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: HighlightOpague
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     passTag: HighlightOpague
     Event: 300
@@ -162,45 +121,6 @@ MonoBehaviour:
         m_Bits: 128
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 91782398c3e642648bd5bb09c85ed99f, type: 2}
-    overrideMaterialPassIndex: 0
-    overrideDepthState: 0
-    depthCompareFunction: 8
-    enableWrite: 0
-    stencilSettings:
-      overrideStencilState: 0
-      stencilReference: 0
-      stencilCompareFunction: 8
-      passOperation: 0
-      failOperation: 0
-      zFailOperation: 0
-    cameraSettings:
-      overrideCamera: 0
-      restoreCamera: 1
-      offset: {x: 0, y: 0, z: 0, w: 0}
-      cameraFieldOfView: 60
---- !u!114 &2732794274120115830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: NormalTransparent
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  settings:
-    passTag: NormalTransparent
-    Event: 300
-    filterSettings:
-      RenderQueueType: 0
-      LayerMask:
-        serializedVersion: 2
-        m_Bits: 128
-      PassNames: []
-    overrideMaterial: {fileID: 2100000, guid: 820e643c3ca873949837f8371bbdf434, type: 2}
     overrideMaterialPassIndex: 0
     overrideDepthState: 0
     depthCompareFunction: 8
@@ -229,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: Highlight Transparent
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     passTag: Highlight Transparent
     Event: 300
