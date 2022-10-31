@@ -26,6 +26,8 @@ namespace Magnet
         {
             base.OnActivated(args);
             StartCoroutine(Shoot());
+            RenderSettings(false);
+            magnetRayInteractor.enabled = false;
         }
 
         protected override void OnSelectEntered(SelectEnterEventArgs args)
@@ -42,16 +44,17 @@ namespace Magnet
             RenderSettings(false);
         }
 
-        protected override void OnActivate(XRBaseInteractor interactor)
-        {
-            base.OnActivate(interactor);
-            RenderSettings(false);
-            magnetRayInteractor.enabled = false;
-        }
+        // protected override void OnActivate(XRBaseInteractor interactor)
+        // {
+        //     base.OnActivate(interactor);
+        //     RenderSettings(false);
+        //     magnetRayInteractor.enabled = false;
+        // }
 
         protected override void OnDeactivated(DeactivateEventArgs args)
         {
             base.OnDeactivated(args);
+            StopCoroutine(Shoot());
             RenderSettings(true);
             Destroy(_bullet);
             followTarget.enabled = false;
