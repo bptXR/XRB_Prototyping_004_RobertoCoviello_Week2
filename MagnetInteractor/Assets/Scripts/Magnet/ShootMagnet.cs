@@ -31,6 +31,11 @@ namespace Magnet
             magnetRayInteractor.enabled = false;
         }
 
+        protected override void OnActivate(XRBaseInteractor interactor)
+        {
+            base.OnActivate(interactor);
+        }
+
         private void Shoot()
         {
             var bullet = Instantiate(magnetBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
