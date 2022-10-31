@@ -588,6 +588,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Demo_Objects
       objectReference: {fileID: 0}
+    - target: {fileID: 742281715943243591, guid: cb9133a8685fa7849ac78ed5a74247c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4298103001151219190, guid: cb9133a8685fa7849ac78ed5a74247c1,
+        type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 369619735}
+    - target: {fileID: 4298103001151219190, guid: cb9133a8685fa7849ac78ed5a74247c1,
+        type: 3}
+      propertyPath: curveRenderer
+      value: 
+      objectReference: {fileID: 369619737}
+    - target: {fileID: 4298103001151219190, guid: cb9133a8685fa7849ac78ed5a74247c1,
+        type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 2003397162}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb9133a8685fa7849ac78ed5a74247c1, type: 3}
 --- !u!1 &832575517
@@ -906,8 +926,8 @@ OcclusionArea:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347935603}
   serializedVersion: 2
-  m_Size: {x: 93.75873, y: 18.073885, z: 223.87936}
-  m_Center: {x: -0.013130188, y: 8.674792, z: 0.13132858}
+  m_Size: {x: 101.35927, y: 14.894142, z: 101.101585}
+  m_Center: {x: -0.033176422, y: 6.378751, z: 13.083754}
   m_IsViewVolume: 1
 --- !u!1 &1358277255
 GameObject:
