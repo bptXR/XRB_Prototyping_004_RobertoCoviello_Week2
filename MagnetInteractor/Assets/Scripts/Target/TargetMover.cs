@@ -11,11 +11,11 @@ namespace Target
         [SerializeField] private Transform targetTransform;
         [SerializeField] private float movementSpeed = 0.5f;
 
-        public bool isMoving;
+        private bool _isMoving;
 
         private void Update()
         {
-            if (!isMoving) return;
+            if (!_isMoving) return;
             Vector2 valueRight = rightMove.action.ReadValue<Vector2>();
             Vector2 valueLeft = leftMove.action.ReadValue<Vector2>();
             Vector2 moveProduct = valueLeft + valueRight;
@@ -34,8 +34,8 @@ namespace Target
             leftMove.action.canceled += MoveCancel;
         }
 
-        private void MoveActivate(InputAction.CallbackContext obj) => isMoving = true;
-        private void MoveCancel(InputAction.CallbackContext obj) => isMoving = false;
+        private void MoveActivate(InputAction.CallbackContext obj) => _isMoving = true;
+        private void MoveCancel(InputAction.CallbackContext obj) => _isMoving = false;
 
         private void OnDisable()
         {

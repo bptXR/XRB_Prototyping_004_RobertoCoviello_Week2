@@ -2873,6 +2873,7 @@ MonoBehaviour:
   magnetRayInteractor: {fileID: 7478876246126106488}
   renderSettings: {fileID: 11400000, guid: e634585d5c4544dd297acaee93dc2beb, type: 2}
   followTarget: {fileID: 77365685}
+  followTargetRigidbody: {fileID: 77365686}
 --- !u!114 &7478876246126106488
 MonoBehaviour:
   m_ObjectHideFlags: 0

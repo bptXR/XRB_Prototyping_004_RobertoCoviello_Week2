@@ -46,6 +46,7 @@ namespace Magnet
         {
             base.OnActivate(interactor);
             RenderSettings(false);
+            magnetRayInteractor.enabled = false;
         }
 
         protected override void OnDeactivated(DeactivateEventArgs args)
@@ -54,6 +55,7 @@ namespace Magnet
             RenderSettings(true);
             Destroy(_bullet);
             followTarget.enabled = false;
+            magnetRayInteractor.enabled = true;
         }
 
         private IEnumerator Shoot()

@@ -15,12 +15,12 @@ namespace Line
         {
             var pointList = new List<Vector3>();
 
-            for (float ratio = 0; ratio <= 1; ratio += 1/vertexCount)
+            for (float ratio = 0; ratio <= 1; ratio += 1 / vertexCount)
             {
                 var tangentOne = Vector3.Lerp(pointOne.position, pointTwo.position, ratio);
                 var tangentTwo = Vector3.Lerp(pointTwo.position, pointThree.position, ratio);
                 var curve = Vector3.Lerp(tangentOne, tangentTwo, ratio);
-            
+
                 pointList.Add(curve);
             }
 
