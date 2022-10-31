@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
@@ -15,45 +16,61 @@ namespace Magnet
         [SerializeField] private float bulletSpeed = 10;
         [SerializeField] private MagnetRayInteractor magnetRayInteractor;
         [SerializeField] private UniversalRendererData renderSettings;
+
+        private bool _isWaiting;
+        private GameObject _bullet;
         
         public static Action<bool> onBeingGrabbed;
 
         protected override void OnActivated(ActivateEventArgs args)
         {
             base.OnActivated(args);
-            Shoot();
+            StartCoroutine(Shoot());
         }
 
         protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
             base.OnSelectEntered(args);
             magnetRayInteractor.enabled = true;
-            renderSettings.rendererFeatures[0].SetActive(true);
-            renderSettings.rendererFeatures[1].SetActive(true);
-            renderSettings.rendererFeatures[2].SetActive(true);
+            RenderSettings(true);
         }
 
         protected override void OnSelectExited(SelectExitEventArgs args)
         {
             base.OnSelectExited(args);
             magnetRayInteractor.enabled = false;
-            renderSettings.rendererFeatures[0].SetActive(false);
-            renderSettings.rendererFeatures[1].SetActive(false);
-            renderSettings.rendererFeatures[2].SetActive(false);
+            RenderSettings(false);
         }
 
         protected override void OnActivate(XRBaseInteractor interactor)
         {
             base.OnActivate(interactor);
-            renderSettings.rendererFeatures[0].SetActive(false);
-            renderSettings.rendererFeatures[1].SetActive(false);
-            renderSettings.rendererFeatures[2].SetActive(false);
+            RenderSettings(false);
         }
 
-        private void Shoot()
+        protected override void OnDeactivated(DeactivateEventArgs args)
         {
-            var bullet = Instantiate(magnetBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+            base.OnDeactivated(args);
+            RenderSettings(true);
+            Destroy(_bullet);
+        }
+
+        private IEnumerator Shoot()
+        {
+            if (_isWaiting) yield break;
+            _bullet = Instantiate(magnetBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            _bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+                
+            _isWaiting = true;
+            yield return new WaitForSeconds(3.1f);
+            _isWaiting = false;
+        }
+
+        private void RenderSettings(bool enable)
+        {
+            renderSettings.rendererFeatures[0].SetActive(enable);
+            renderSettings.rendererFeatures[1].SetActive(enable);
+            renderSettings.rendererFeatures[2].SetActive(enable);
         }
     }
 }

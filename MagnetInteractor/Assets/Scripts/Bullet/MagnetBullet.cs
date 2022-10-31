@@ -22,8 +22,8 @@ namespace Bullet
         {
             if (!collision.gameObject.CompareTag("MagneticObject")) return;
             collision.gameObject.GetComponent<FollowTarget>().enabled = true;
+            
             var collisionPosition = collision.gameObject.transform.position;
-
             _targetTransform.position = new Vector3(_targetTransform.position.x, _targetTransform.position.y, collisionPosition.z);
 
             Destroy(gameObject);
