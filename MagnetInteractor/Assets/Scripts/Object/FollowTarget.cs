@@ -8,7 +8,7 @@ namespace Object
     {
         [SerializeField] private Transform targetTransform;
         [SerializeField] private Rigidbody rigidbody;
-        [SerializeField] private float speed = 0.5f;
+        [SerializeField] private float speed = 0.6f;
         [SerializeField] private CurveRenderer curveRenderer;
         [SerializeField] private LineRenderer lineRenderer;
         
@@ -47,6 +47,7 @@ namespace Object
             curveRenderer.enabled = false;
             lineRenderer.enabled = false;
             rigidbody.isKinematic = false;
+            rigidbody.AddForce(transform.up * _mass);
         }
     }
 }
