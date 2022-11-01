@@ -26,7 +26,7 @@ namespace Magnet
         protected override void OnEnable()
         {
             base.OnEnable();
-            MagnetBullet.onFollowTargetGet += SetMagneticObject;
+            MagnetBullet.OnFollowTargetGet += SetMagneticObject;
         }
 
         private void SetMagneticObject(FollowTarget obj) => _magneticObject = obj;
@@ -67,6 +67,7 @@ namespace Magnet
         {
             if (_isWaiting) yield break;
             magnetBulletPrefab.position = bulletSpawnPoint.position;
+            magnetBulletPrefab.rotation = bulletSpawnPoint.rotation;
             magnetBulletPrefab.gameObject.SetActive(true);
             magnetBulletPrefabRigidbody.velocity = bulletSpawnPoint.forward * bulletSpeed;
                 

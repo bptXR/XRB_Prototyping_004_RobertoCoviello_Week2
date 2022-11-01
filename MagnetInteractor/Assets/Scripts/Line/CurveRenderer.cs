@@ -16,7 +16,7 @@ namespace Line
         
         private void OnEnable()
         {
-            MagnetBullet.onFollowTargetGet += SetMagneticObject;
+            MagnetBullet.OnFollowTargetGet += SetMagneticObject;
         }
 
         private void SetMagneticObject(FollowTarget obj) => _magneticObject = obj;

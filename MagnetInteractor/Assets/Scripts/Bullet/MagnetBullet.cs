@@ -6,25 +6,24 @@ namespace Bullet
 {
     public class MagnetBullet : MonoBehaviour
     {
-        [SerializeField] private float duration = 3;
         [SerializeField] private Transform targetTransform;
-        
+        [SerializeField] private Transform magnetTransform;
+
         private FollowTarget _magneticObject;
-        public static Action<FollowTarget> onFollowTargetGet;
+        public static Action<FollowTarget> OnFollowTargetGet;
 
         private void OnCollisionEnter(Collision collision)
         {
             if (!collision.gameObject.CompareTag("MagneticObject")) return;
             _magneticObject = collision.gameObject.GetComponent<FollowTarget>();
             _magneticObject.enabled = true;
-            
-            onFollowTargetGet?.Invoke(_magneticObject);
-            
-            Vector3 collisionPosition = collision.gameObject.transform.position;
-            Vector3 position = targetTransform.position;
-            position = new Vector3(position.x, position.y, collisionPosition.z);
-            targetTransform.position = position;
-            
+
+            OnFollowTargetGet?.Invoke(_magneticObject);
+
+            float distance = Vector3.Distance(_magneticObject.transform.position, magnetTransform.position);
+
+            targetTransform.localPosition = new Vector3(0, 0, distance);
+
             gameObject.SetActive(false);
         }
     }

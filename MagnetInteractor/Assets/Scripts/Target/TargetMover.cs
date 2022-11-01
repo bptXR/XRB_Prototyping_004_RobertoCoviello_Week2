@@ -9,7 +9,7 @@ namespace Target
         [SerializeField] private InputActionReference rightMove;
         [SerializeField] private InputActionReference leftMove;
         [SerializeField] private Transform targetTransform;
-        [SerializeField] private float movementSpeed = 0.5f;
+        [SerializeField] private float movementSpeed = 0.6f;
 
         private bool _isMoving;
 
@@ -19,8 +19,8 @@ namespace Target
             Vector2 valueRight = rightMove.action.ReadValue<Vector2>();
             Vector2 valueLeft = leftMove.action.ReadValue<Vector2>();
             Vector2 moveProduct = valueLeft + valueRight;
-
-            var position = targetTransform.localPosition;
+        
+            Vector3 position = targetTransform.localPosition;
             position += new Vector3(0, 0, movementSpeed * moveProduct.y);
             targetTransform.localPosition = position;
         }
