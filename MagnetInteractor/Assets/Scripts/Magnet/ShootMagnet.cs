@@ -68,7 +68,7 @@ namespace Magnet
             _bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
                 
             _isWaiting = true;
-            yield return new WaitForSeconds(3.1f);
+            yield return new WaitForSeconds(1f);
             _isWaiting = false;
         }
 

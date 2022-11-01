@@ -7,25 +7,25 @@ namespace Object
     public class FollowTarget : MonoBehaviour
     {
         [SerializeField] private Transform targetTransform;
-        [SerializeField] private Rigidbody rigidbody;
         [SerializeField] private float speed = 0.6f;
         [SerializeField] private CurveRenderer curveRenderer;
         [SerializeField] private LineRenderer lineRenderer;
 
-
+        private Rigidbody _rigidbody;
         private float _mass;
         private bool _canLift;
 
         private void Awake()
         {
-            _mass = rigidbody.mass;
+            _rigidbody = GetComponent<Rigidbody>();
+            _mass = _rigidbody.mass;
         }
 
         private void OnEnable()
         {
             curveRenderer.enabled = true;
             lineRenderer.enabled = true;
-            rigidbody.isKinematic = true;
+            _rigidbody.isKinematic = true;
             //rigidbody.useGravity = false;
         }
 
@@ -41,7 +41,7 @@ namespace Object
             if (!_canLift) return;
             //transform.position =
             //Vector3.MoveTowards(transform.position, targetTransform.position, (speed + distance) * Time.deltaTime)
-            rigidbody.MovePosition(Vector3.MoveTowards(transform.position, targetTransform.position,
+            _rigidbody.MovePosition(Vector3.MoveTowards(transform.position, targetTransform.position,
                 (speed + distance) * Time.fixedDeltaTime));
         }
 
@@ -49,7 +49,7 @@ namespace Object
         {
             curveRenderer.enabled = false;
             lineRenderer.enabled = false;
-            rigidbody.isKinematic = false;
+            _rigidbody.isKinematic = false;
             //rigidbody.useGravity = true;
             //rigidbody.AddForce(transform.up * _mass);
         }
