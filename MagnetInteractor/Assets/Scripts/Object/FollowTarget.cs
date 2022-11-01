@@ -11,7 +11,7 @@ namespace Object
         [SerializeField] private float speed = 0.6f;
         [SerializeField] private CurveRenderer curveRenderer;
         [SerializeField] private LineRenderer lineRenderer;
-        
+
 
         private float _mass;
         private bool _canLift;
@@ -26,9 +26,10 @@ namespace Object
             curveRenderer.enabled = true;
             lineRenderer.enabled = true;
             rigidbody.isKinematic = true;
+            //rigidbody.useGravity = false;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             float distance = Vector3.Distance(targetTransform.position, transform.position);
 
@@ -38,8 +39,10 @@ namespace Object
             }
 
             if (!_canLift) return;
-            transform.position =
-                Vector3.MoveTowards(transform.position, targetTransform.position, (speed + distance) * Time.deltaTime);
+            //transform.position =
+            //Vector3.MoveTowards(transform.position, targetTransform.position, (speed + distance) * Time.deltaTime)
+            rigidbody.MovePosition(Vector3.MoveTowards(transform.position, targetTransform.position,
+                (speed + distance) * Time.fixedDeltaTime));
         }
 
         private void OnDisable()
@@ -47,7 +50,8 @@ namespace Object
             curveRenderer.enabled = false;
             lineRenderer.enabled = false;
             rigidbody.isKinematic = false;
-            rigidbody.AddForce(transform.up * _mass);
+            //rigidbody.useGravity = true;
+            //rigidbody.AddForce(transform.up * _mass);
         }
     }
 }
