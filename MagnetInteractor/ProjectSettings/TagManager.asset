@@ -11,6 +11,7 @@ TagManager:
   - MagneticObject
   - TargetPoint
   - MagnetCurve
+  - Magnet
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Bullet;
 using Object;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
@@ -13,15 +14,23 @@ namespace Magnet
     public class ShootMagnet : XRGrabInteractable
     {
         [SerializeField] private Transform bulletSpawnPoint;
-        [SerializeField] private GameObject magnetBulletPrefab;
+        [SerializeField] private Transform magnetBulletPrefab;
+        [SerializeField] private Rigidbody magnetBulletPrefabRigidbody;
         [SerializeField] private float bulletSpeed = 10;
         [SerializeField] private MagnetRayInteractor magnetRayInteractor;
         [SerializeField] private UniversalRendererData renderSettings;
-        [SerializeField] private FollowTarget followTarget;
-
-        private bool _isWaiting;
-        private GameObject _bullet;
         
+        private FollowTarget _magneticObject;
+        private bool _isWaiting;
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            MagnetBullet.onFollowTargetGet += SetMagneticObject;
+        }
+
+        private void SetMagneticObject(FollowTarget obj) => _magneticObject = obj;
+
         protected override void OnActivated(ActivateEventArgs args)
         {
             base.OnActivated(args);
@@ -44,28 +53,22 @@ namespace Magnet
             RenderSettings(false);
         }
 
-        // protected override void OnActivate(XRBaseInteractor interactor)
-        // {
-        //     base.OnActivate(interactor);
-        //     RenderSettings(false);
-        //     magnetRayInteractor.enabled = false;
-        // }
-
         protected override void OnDeactivated(DeactivateEventArgs args)
         {
             base.OnDeactivated(args);
             StopCoroutine(Shoot());
             RenderSettings(true);
-            Destroy(_bullet);
-            followTarget.enabled = false;
+            magnetBulletPrefab.gameObject.SetActive(false);
+            _magneticObject.enabled = false;
             magnetRayInteractor.enabled = true;
         }
 
         private IEnumerator Shoot()
         {
             if (_isWaiting) yield break;
-            _bullet = Instantiate(magnetBulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            _bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+            magnetBulletPrefab.position = bulletSpawnPoint.position;
+            magnetBulletPrefab.gameObject.SetActive(true);
+            magnetBulletPrefabRigidbody.velocity = bulletSpawnPoint.forward * bulletSpeed;
                 
             _isWaiting = true;
             yield return new WaitForSeconds(1f);

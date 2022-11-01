@@ -7,26 +7,25 @@ namespace Bullet
     public class MagnetBullet : MonoBehaviour
     {
         [SerializeField] private float duration = 3;
-
-        private GameObject _targetPoint;
-        private Transform _targetTransform;
-
-        private void Awake()
-        {
-            _targetPoint = GameObject.FindGameObjectWithTag("TargetPoint");
-            _targetTransform = _targetPoint.transform;
-            Destroy(gameObject, duration);
-        }
+        [SerializeField] private Transform targetTransform;
+        
+        private FollowTarget _magneticObject;
+        public static Action<FollowTarget> onFollowTargetGet;
 
         private void OnCollisionEnter(Collision collision)
         {
             if (!collision.gameObject.CompareTag("MagneticObject")) return;
-            collision.gameObject.GetComponent<FollowTarget>().enabled = true;
+            _magneticObject = collision.gameObject.GetComponent<FollowTarget>();
+            _magneticObject.enabled = true;
+            
+            onFollowTargetGet?.Invoke(_magneticObject);
             
             Vector3 collisionPosition = collision.gameObject.transform.position;
-            _targetTransform.position = new Vector3(_targetTransform.position.x, _targetTransform.position.y, collisionPosition.z);
-
-            Destroy(gameObject);
+            Vector3 position = targetTransform.position;
+            position = new Vector3(position.x, position.y, collisionPosition.z);
+            targetTransform.position = position;
+            
+            gameObject.SetActive(false);
         }
     }
 }
