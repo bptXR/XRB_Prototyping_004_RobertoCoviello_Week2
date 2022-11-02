@@ -19,6 +19,8 @@ namespace Magnet
         [SerializeField] private float bulletSpeed = 10;
         [SerializeField] private MagnetRayInteractor magnetRayInteractor;
         [SerializeField] private UniversalRendererData renderSettings;
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioSource bulletSound;
         
         private FollowTarget _magneticObject;
         private bool _isWaiting;
@@ -37,6 +39,8 @@ namespace Magnet
             StartCoroutine(Shoot());
             RenderSettings(false);
             magnetRayInteractor.enabled = false;
+            audioSource.Play();
+            bulletSound.Play();
         }
 
         protected override void OnSelectEntered(SelectEnterEventArgs args)
@@ -61,6 +65,7 @@ namespace Magnet
             magnetBulletPrefab.gameObject.SetActive(false);
             _magneticObject.enabled = false;
             magnetRayInteractor.enabled = true;
+            audioSource.Stop();
         }
 
         private IEnumerator Shoot()

@@ -7,7 +7,6 @@ namespace Bullet
     public class MagnetBullet : MonoBehaviour
     {
         [SerializeField] private Transform targetTransform;
-        [SerializeField] private Transform magnetTransform;
 
         private FollowTarget _magneticObject;
         public static Action<FollowTarget> OnFollowTargetGet;
@@ -20,9 +19,7 @@ namespace Bullet
 
             OnFollowTargetGet?.Invoke(_magneticObject);
 
-            float distance = Vector3.Distance(_magneticObject.transform.position, magnetTransform.position);
-
-            targetTransform.localPosition = new Vector3(0, 0, distance);
+            targetTransform.position = _magneticObject.transform.position;
 
             gameObject.SetActive(false);
         }
