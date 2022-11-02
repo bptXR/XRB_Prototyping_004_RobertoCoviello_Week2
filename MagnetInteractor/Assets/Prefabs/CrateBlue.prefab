@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1118085362977378
+--- !u!1 &2497231191586598624
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4035765028099436}
-  - component: {fileID: 3596388879582712358}
-  - component: {fileID: 3282468149100229716}
-  - component: {fileID: 7365648447665673878}
-  - component: {fileID: 33051811110579016}
-  - component: {fileID: 23635924190403392}
-  - component: {fileID: 1318959123242812803}
-  - component: {fileID: 5626995579181692745}
-  m_Layer: 0
-  m_Name: SM_PolygonPrototype_Prop_Crate_03
-  m_TagString: Untagged
+  - component: {fileID: 2497911116249526766}
+  - component: {fileID: 1390762141477877412}
+  - component: {fileID: 1092581469702836438}
+  - component: {fileID: 4943826842192572948}
+  - component: {fileID: 2508898752027496394}
+  - component: {fileID: 2519749501521395650}
+  - component: {fileID: 3524603513400123649}
+  - component: {fileID: 7832622626793690059}
+  m_Layer: 7
+  m_Name: CrateBlue
+  m_TagString: MagneticObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4035765028099436
+--- !u!4 &2497911116249526766
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118085362977378}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_GameObject: {fileID: 2497231191586598624}
+  m_LocalRotation: {x: -0, y: -0.19238672, z: -0, w: 0.9813192}
+  m_LocalPosition: {x: 1.1041579, y: -2.2080085, z: -5.841913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3596388879582712358
+--- !u!114 &1390762141477877412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118085362977378}
+  m_GameObject: {fileID: 2497231191586598624}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 637782503b1f20d44b915b980aad8197, type: 3}
@@ -54,30 +54,30 @@ MonoBehaviour:
   speed: 0.6
   curveRenderer: {fileID: 0}
   lineRenderer: {fileID: 0}
---- !u!114 &3282468149100229716
+--- !u!114 &1092581469702836438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118085362977378}
+  m_GameObject: {fileID: 2497231191586598624}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d45fc5f6e7c2e5d4098173c2bf4a06d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 7365648447665673878}
+  audioSource: {fileID: 4943826842192572948}
   fallLow: {fileID: 8300000, guid: b85aefbcfa032b546891ff82938f00c0, type: 3}
   fallMedium: {fileID: 8300000, guid: ded46d2dde28f4740b89457a5572b18a, type: 3}
   fallHigh: {fileID: 8300000, guid: bbecd83daa5e730409673818efef1aba, type: 3}
   magnetHitSound: {fileID: 8300000, guid: 8f5ec28429c82df4f972b43257937e26, type: 3}
---- !u!82 &7365648447665673878
+--- !u!82 &4943826842192572948
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118085362977378}
+  m_GameObject: {fileID: 2497231191586598624}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -167,21 +167,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!33 &33051811110579016
+--- !u!33 &2508898752027496394
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118085362977378}
+  m_GameObject: {fileID: 2497231191586598624}
   m_Mesh: {fileID: 4300000, guid: 8dca5595cdaced544b3bca78ca84e8d8, type: 3}
---- !u!23 &23635924190403392
+--- !u!23 &2519749501521395650
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118085362977378}
+  m_GameObject: {fileID: 2497231191586598624}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -217,26 +217,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1318959123242812803
+--- !u!65 &3524603513400123649
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118085362977378}
+  m_GameObject: {fileID: 2497231191586598624}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.9964997, y: 0.99649537, z: 0.9964959}
   m_Center: {x: 0, y: -0.00000016391277, z: 0}
---- !u!54 &5626995579181692745
+--- !u!54 &7832622626793690059
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118085362977378}
+  m_GameObject: {fileID: 2497231191586598624}
   serializedVersion: 2
   m_Mass: 8
   m_Drag: 0
